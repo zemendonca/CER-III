@@ -1,20 +1,27 @@
 /*================ GLOBAL ===============*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   font-size: 62.5%;
   --nav-height: 7.2rem;
-  --main-blue: rgba(0,90,170,255);
-  }
+  --main-blue: rgba(0, 90, 170, 255);
+}
 
-html, body {
+html,
+body {
   font-family: 'Roboto', sans-serif;
   width: 100%;
   height: 100%;
+}
+
+.wrapper {
+  width: min(50rem, 100%);
+  margin-inline: auto;
+  padding-inline: 2.4rem;
 }
 
 body a {
@@ -22,19 +29,20 @@ body a {
 }
 
 /* =============NAVIGATION MENU============== */
-.wrapper {
-  margin-inline: auto;
-  width: min(50rem, 100%);
-  text-align: left;
+
+nav .wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 1.4rem;
 }
 
 nav {
   display: flex;
   background-color: var(--main-blue);
-  height: 4.0rem;
-  position: fixed;
+  height: auto;
+  position: relative;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 100;
 }
 
@@ -42,10 +50,45 @@ nav {
   text-transform: uppercase;
   color: white;
   padding: 0.5rem 0.2rem;
-  font-size: 1.2rem;
-  box-sizing: content-box;
-  position: absolute;
-  margin-left: .5rem;
+  font-size: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  margin-left: 0.5rem;
+  text-align: left;
+  height: 100%;
+}
+
+.navbutton {
+  display: inline-block;
+  position: relative;
   text-align: left;
 }
 
+/* =======main body========*/
+
+#items-wrapper {
+  width: 100%;
+}
+
+#items {
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.item {
+  flex: none;
+  width: 100%;
+  height: auto;
+  scroll-snap-align: start;
+  pointer-events: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
